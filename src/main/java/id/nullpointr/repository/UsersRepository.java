@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import id.nullpointr.model.Users;
 
 @Repository
-public interface CredentialRepository extends CrudRepository<Users, Long>{
-
+public interface UsersRepository extends CrudRepository<Users, Long>{
+	Users findByEmail(String email);
 }

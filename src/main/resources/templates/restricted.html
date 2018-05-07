@@ -21,24 +21,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form name="form-login" th:action="@{/logout}" method="post" class="login100-form validate-form">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 					<span class="login100-form-title p-b-26">
-						Google Authenticator
+						Restricted Page
 					</span>
-					<span class="login100-form-title p-b-48">
-						<img alt="QR Code" th:src="${gauthUrl}">
-					</span>
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="client-code">
-						<span class="focus-input100" data-placeholder="Insert your code here"></span>
-					</div>
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Submit
-							</button>
-						</div>
-					</div>
+					<div class="text-center p-b-20">    
+	                	<p>You are logged as: <span th:text="${principal}" style="font-weight: bold;"></span>, This is a restricted page.</p>
+	                </div>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
